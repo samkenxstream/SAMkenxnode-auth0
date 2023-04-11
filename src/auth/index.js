@@ -37,9 +37,12 @@ class AuthenticationClient {
    * @param   {string}  options.domain                    AuthenticationClient server domain.
    * @param   {string}  [options.clientId]                Default client ID.
    * @param   {string}  [options.clientSecret]            Default client Secret.
+   * @param   {string}  [options.clientAssertionSigningKey] Private key used to sign the client assertion JWT.
+   * @param   {string}  [options.clientAssertionSigningAlg] Default RS256
    * @param   {string}  [options.supportedAlgorithms]     Algorithms that your application expects to receive
    * @param  {boolean}  [options.__bypassIdTokenValidation] Whether the id_token should be validated or not
    * @param   {object}  [options.headers]                 Additional headers that will be added to the outgoing requests.
+   * @param   {string}  [options.proxy]                   Add the `superagent-proxy` dependency and specify a proxy url eg 'https://myproxy.com:1234'
    */
   constructor(options) {
     if (!options || typeof options !== 'object') {
@@ -59,10 +62,13 @@ class AuthenticationClient {
       clientId: options.clientId,
       domain: options.domain,
       clientSecret: options.clientSecret,
+      clientAssertionSigningKey: options.clientAssertionSigningKey,
+      clientAssertionSigningAlg: options.clientAssertionSigningAlg,
       headers: Object.assign(defaultHeaders, options.headers || {}),
       baseUrl: util.format(BASE_URL_FORMAT, options.domain),
       supportedAlgorithms: options.supportedAlgorithms,
       __bypassIdTokenValidation: options.__bypassIdTokenValidation,
+      proxy: options.proxy,
     };
 
     if (options.telemetry !== false) {

@@ -12,11 +12,14 @@ class ManagementTokenProvider {
    * @param {string}  options.domain                  ManagementClient server domain.
    * @param {string}  options.clientId                Non Interactive Client Id.
    * @param {string}  options.clientSecret            Non Interactive Client Secret.
+   * @param {string}  options.clientAssertionSigningKey Private key used to sign the client assertion JWT.
+   * @param {string}  options.clientAssertionSigningAlg Default 'RS256'.
    * @param {string}  options.scope                   Non Interactive Client Scope.
    * @param {string}  options.audience                Audience of the Management API.
    * @param {boolean} [options.enableCache=true]      Enabled or Disable Cache
    * @param {number}  [options.cacheTTLInSeconds]     By default the `expires_in` value will be used to determine the cached time of the token, this can be overridden.
    * @param {object}  [options.headers]               Additional headers that will be added to the outgoing requests.
+   * @param {string}  [options.proxy]                 Add the `superagent-proxy` dependency and specify a proxy url eg 'https://myproxy.com:1234'
    */
   constructor(options) {
     if (!options || typeof options !== 'object') {
@@ -33,8 +36,11 @@ class ManagementTokenProvider {
       throw new ArgumentError('Must provide a clientId');
     }
 
-    if (!params.clientSecret || params.clientSecret.length === 0) {
-      throw new ArgumentError('Must provide a clientSecret');
+    if (
+      (!params.clientSecret || params.clientSecret.length === 0) &&
+      (!params.clientAssertionSigningKey || params.clientAssertionSigningKey.length === 0)
+    ) {
+      throw new ArgumentError('Must provide a clientSecret or a clientAssertionSigningKey');
     }
 
     if (!params.audience || params.audience.length === 0) {
@@ -64,9 +70,12 @@ class ManagementTokenProvider {
       domain: this.options.domain,
       clientId: this.options.clientId,
       clientSecret: this.options.clientSecret,
+      clientAssertionSigningKey: this.options.clientAssertionSigningKey,
+      clientAssertionSigningAlg: this.options.clientAssertionSigningAlg,
       telemetry: this.options.telemetry,
       clientInfo: this.options.clientInfo,
       headers: this.options.headers,
+      proxy: this.options.proxy,
     };
     this.authenticationClient = new AuthenticationClient(authenticationClientOptions);
 

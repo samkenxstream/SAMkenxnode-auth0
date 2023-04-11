@@ -1,5 +1,47 @@
 # Change Log
 
+## [v3.3.0](https://github.com/auth0/node-auth0/tree/v3.3.0) (2023-03-14)
+
+[Full Changelog](https://github.com/auth0/node-auth0/compare/v3.2.0...v3.3.0)
+
+**Added**
+
+- [SDK-4013] Add API2 Factor Management Endpoints [\#791](https://github.com/auth0/node-auth0/pull/791) ([adamjmcgrath](https://github.com/adamjmcgrath))
+- ESM support [\#784](https://github.com/auth0/node-auth0/pull/784) ([btakita](https://github.com/btakita))
+
+## [v3.2.0](https://github.com/auth0/node-auth0/tree/v3.2.0) (2023-02-09)
+
+[Full Changelog](https://github.com/auth0/node-auth0/compare/v3.1.2...v3.2.0)
+
+**Added**
+
+- Add DELETE /api/v2/users/{id}/authenticators [\#785](https://github.com/auth0/node-auth0/pull/785) ([adamjmcgrath](https://github.com/adamjmcgrath))
+
+## [v3.1.2](https://github.com/auth0/node-auth0/tree/v3.1.2) (2023-01-25)
+
+[Full Changelog](https://github.com/auth0/node-auth0/compare/v3.1.1...v3.1.2)
+
+**Fixed**
+
+- Add support for proxy in AuthenticationClient [\#779](https://github.com/auth0/node-auth0/pull/779) ([frederikprijck](https://github.com/frederikprijck))
+
+## [v3.1.1](https://github.com/auth0/node-auth0/tree/v3.1.1) (2023-01-12)
+
+[Full Changelog](https://github.com/auth0/node-auth0/compare/v3.1.0...v3.1.1)
+
+**Fixed**
+
+- bump-jwks-rsa [\#776](https://github.com/auth0/node-auth0/pull/776) ([adamjmcgrath](https://github.com/adamjmcgrath))
+
+## [v3.1.0](https://github.com/auth0/node-auth0/tree/v3.1.0) (2023-01-12)
+
+[Full Changelog](https://github.com/auth0/node-auth0/compare/v3.0.1...v3.1.0)
+
+**Added**
+
+- [SDK-3868] Add support for managing client credentials [\#774](https://github.com/auth0/node-auth0/pull/774) ([adamjmcgrath](https://github.com/adamjmcgrath))
+- [SDK-3856] Add `client_assertion` to authenticate clients [\#761](https://github.com/auth0/node-auth0/pull/761) ([adamjmcgrath](https://github.com/adamjmcgrath))
+
 ## [v3.0.1](https://github.com/auth0/node-auth0/tree/v3.0.1) (2022-12-22)
 
 [Full Changelog](https://github.com/auth0/node-auth0/compare/v3.0.0...v3.0.1)
